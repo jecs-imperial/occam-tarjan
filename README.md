@@ -25,7 +25,7 @@ A graph can be constructed as follows:
     graph.addVertex('d');
 
 The two methods `generateCycles()` and `generateComponents()` can then be called, and will return cycles and components, respectively.
-Note that the graph is not stateless. Once either of these methods is called, it must effectively be thrown away.
+Note that the graph is not stateless. Once either of these methods has been called, it must be thrown away.
 
 A cycle is nothing more than a component with more than one vertex and the components form a disjoint partition.
 The [Wikipedia page](https://en.wikipedia.org/wiki/Tarjan%27s_strongly_connected_components_algorithm) has a very good explanation of the algorithm itself.
