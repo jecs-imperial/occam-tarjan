@@ -17,6 +17,10 @@ It is used to detect cyclic productions in BNF grammars so that they can be elim
 
 A graph can be constructed as follows:
 
+    const tarjan = require('occam-tarjan');
+
+    const { Graph } = tarjan;
+
     const graph = new Graph();
     
     graph.addVertex('a', ['b', 'c']);
@@ -24,11 +28,11 @@ A graph can be constructed as follows:
     graph.addVertex('c', ['a']);
     graph.addVertex('d');
 
-Either of the two methods `generateCycles()` and `generateComponents()` can then be called, and will return the cycles and components, respectively.
-Note that the graph is not stateless. Once either of these methods has been called, it must be thrown away.
+Either of the two methods `generateCycles()` or `generateComponents()` can then be called, and will return the cycles or components, respectively.
+*Note that the graph is not stateless.* Once either of these methods has been called, it must be thrown away.
 
 A cycle is nothing more than a component with more than one vertex and the components form a disjoint partition.
-The [Wikipedia page](https://en.wikipedia.org/wiki/Tarjan%27s_strongly_connected_components_algorithm) has a very good explanation of the algorithm itself.
+The [Wikipedia page](https://en.wikipedia.org/wiki/Tarjan%27s_strongly_connected_components_algorithm) has a good explanation of the algorithm itself.
 
 ## Installation
 
