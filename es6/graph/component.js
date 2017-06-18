@@ -47,7 +47,13 @@ class Component {
     
     return vertexNames.map(callback);
   }
-  
+
+  reduceVertexNames(callback, initialValue) {
+    const vertexNames = this.getVertexNames();
+
+    return vertexNames.reduce(callback, initialValue);
+  }
+
   static fromStackAndVertex(stack, vertex) {
     const stackVertices = [];
     
