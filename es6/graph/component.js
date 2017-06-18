@@ -1,5 +1,7 @@
 'use strict';
 
+const arrayUtil = require('../util/array');
+
 class Component {
   constructor(vertices) {
     this.vertices = vertices;
@@ -9,12 +11,23 @@ class Component {
     return this.vertices;
   }
 
-  getFirstVertex() {
-    const firstVertex = first(this.vertices);
+  getVertexNames() {
+    const vertexNames = this.vertices.map(function(vertex) {
+      const vertexName = vertex.getName();
+      
+      return vertexName;
+    });
     
-    return firstVertex;
+    return vertexNames;
   }
-  
+
+  getFirstVertexName() {
+    const firstVertex = arrayUtil.first(this.vertices),
+          firstVertexName = firstVertex.getName();
+
+    return firstVertexName;
+  }
+
   isCyclic() {
     const verticesLength = this.vertices.length,
           cyclic = (verticesLength > 1);  ///
@@ -29,7 +42,11 @@ class Component {
     return nonCyclic;
   }
   
-  mapVertices(callback) { return this.vertices.map(callback); }
+  mapVertexNames(callback) {
+    const vertexNames = this.getVertexNames();
+    
+    return vertexNames.map(callback);
+  }
   
   static fromStackAndVertex(stack, vertex) {
     const stackVertices = [];
@@ -50,5 +67,3 @@ class Component {
 }
 
 module.exports = Component;
-
-function first(array) { return array[0]; }
