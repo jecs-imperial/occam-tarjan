@@ -107,11 +107,14 @@ class Graph {
 
   addVertex(name, descendantVertexNames) {
     let successorVertices = descendantVertexNames.map(function(descendantVertexName) {
-      const successorVertexName = descendantVertexName;  ///
+      let successorVertex;
 
-      let successorVertex = this.vertexmap[successorVertexName];
+      const successorVertexName = descendantVertexName,  ///
+            successorVertexExists = this.vertexmap.hasOwnProperty(successorVertexName);
 
-      if (successorVertex === undefined) {
+      if (successorVertexExists) {
+        successorVertex = this.vertexmap[successorVertexName];
+      } else {
         successorVertex = Vertex.fromName(successorVertexName);
 
         this.vertexmap[successorVertexName] = successorVertex;
@@ -120,9 +123,13 @@ class Graph {
       return successorVertex;
     }.bind(this));
 
-    let vertex = this.vertexmap[name];
+    let vertex;
 
-    if (vertex === undefined) {
+    const vertexExists = this.vertexmap.hasOwnProperty(name);
+
+    if (vertexExists) {
+      vertex = this.vertexmap[name];
+    } else {
       vertex = Vertex.fromName(name);
 
       this.vertexmap[name] = vertex;
