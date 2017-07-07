@@ -1,6 +1,6 @@
 # Tarjan
 
-An implementation of the Tarjan algorithm for use with Occam's parsers.
+An implementation of the Tarjan algorithm.
 
 ### Contents
 

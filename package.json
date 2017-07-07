@@ -1,10 +1,10 @@
 {
   "name": "occam-tarjan",
   "author": "James Smith",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "license": "MIT",
   "homepage": "https://github.com/occam-proof-assistant/Tarjan",
-  "description": "An implementation of the Tarjan algoirthm for use with Occam's parsers.",
+  "description": "An implementation of the Tarjan algoirthm.",
   "repository": {
     "type": "git",
     "url": "https://github.com/occam-proof-assistant/Tarjan"
