@@ -72,8 +72,9 @@ class Vertex {
     }
   }
 
-  static fromName(name) {
-    const index = -1,
+  static fromVertexName(vertexName) {
+    const name = vertexName,  ///
+          index = -1,
           stacked = false,
           visited = false,
           lowestIndex = -1,

@@ -57,7 +57,7 @@ module.exports = Graph;
 function addVertexLiteral(vertexMap, vertexLiteral) {
   const firstVertexLiteralElement = arrayUtil.first(vertexLiteral),
         secondVertexLiteralElement = arrayUtil.second(vertexLiteral),
-        name = firstVertexLiteralElement, ///
+        vertexName = firstVertexLiteralElement, ///
         descendantVertexNames = secondVertexLiteralElement; ///
 
   let successorVertices = descendantVertexNames.map(function(descendantVertexName) {
@@ -69,7 +69,7 @@ function addVertexLiteral(vertexMap, vertexLiteral) {
     if (successorVertexExists) {
       successorVertex = vertexMap[successorVertexName];
     } else {
-      successorVertex = Vertex.fromName(successorVertexName);
+      successorVertex = Vertex.fromVertexName(successorVertexName);
 
       vertexMap[successorVertexName] = successorVertex;
     }
@@ -79,14 +79,14 @@ function addVertexLiteral(vertexMap, vertexLiteral) {
 
   let vertex;
 
-  const vertexExists = vertexMap.hasOwnProperty(name);
+  const vertexExists = vertexMap.hasOwnProperty(vertexName);
 
   if (vertexExists) {
-    vertex = vertexMap[name];
+    vertex = vertexMap[vertexName];
   } else {
-    vertex = Vertex.fromName(name);
+    vertex = Vertex.fromVertexName(vertexName);
 
-    vertexMap[name] = vertex;
+    vertexMap[vertexName] = vertex;
   }
 
   successorVertices = successorVertices.concat([]).reverse(); ///
@@ -95,9 +95,9 @@ function addVertexLiteral(vertexMap, vertexLiteral) {
 }
 
 function verticesFromVertexMap(vertexMap) {
-  const names = Object.keys(vertexMap),
-        vertices = names.map(function(name) {
-          const vertex = vertexMap[name];
+  const vertexNames = Object.keys(vertexMap),
+        vertices = vertexNames.map(function(vertexName) {
+          const vertex = vertexMap[vertexName];
   
           return vertex;
         });
