@@ -12,28 +12,29 @@ An implementation of the Tarjan algorithm for use with Occam's parsers.
 
 ## Introduction
 
-This algorithm divides up a graph into its strongly connected components. 
-It is used to detect cyclic productions in BNF grammars so that they can be eliminated as a preliminary step to removing left recursive productions.
+This algorithm partitions a graph into its strongly connected components. The [Wikipedia page](https://en.wikipedia.org/wiki/Tarjan%27s_strongly_connected_components_algorithm) has a good explanation of the algorithm itself.
 
-A graph can be constructed as follows:
+A graph can be constructed with the `fromVertexLiterals()` factory method as follows:
 
     const tarjan = require('occam-tarjan');
 
     const { Graph } = tarjan;
 
-    const graph = new Graph();
+    const graph = Graph.fromVertexLiterals(
     
-    graph.addVertex('a', ['b', 'c']);
-    graph.addVertex('b', ['b', 'd']);
-    graph.addVertex('c', ['a']);
-    graph.addVertex('d');
-
-Either of the two methods `generateCycles()` or `generateComponents()` can then be called, and will return the cycles or components, respectively.
-*Note that the graph is not stateless.* Once either of these methods has been called, it must be thrown away.
-
-A cycle is nothing more than a component with more than one vertex and the components form a disjoint partition.
-The [Wikipedia page](https://en.wikipedia.org/wiki/Tarjan%27s_strongly_connected_components_algorithm) has a good explanation of the algorithm itself.
-
+      ['a', ['b', 'c']],
+      ['b', ['b', 'd']],
+      ['c', ['a']],
+      ['d', []]
+      
+    );
+    
+The vertices, components and cycles of the graph are then made available:
+    
+    const vertices = graph.getVertices(),
+          components = graph.getComponents(),
+          cycles = graph.getCycles();
+    
 ## Installation
 
 With [npm](https://www.npmjs.com/):
