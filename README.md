@@ -1,6 +1,6 @@
 # Tarjan
 
-An implementation of the Tarjan algorithm.
+An implementation of Tarjan's algorithm.
 
 ### Contents
 
