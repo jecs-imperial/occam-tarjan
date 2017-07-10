@@ -29,6 +29,8 @@ A graph can be constructed with the `fromVertexLiterals()` factory method as fol
       
     );
     
+Note that the array of names that is the second element of each literal gives the *descendants* of the vertex and not its ancestors. 
+
 The vertices, components and cycles of the graph are then made available:
     
     const vertices = graph.getVertices(),
