@@ -2,7 +2,7 @@
 
 const arrayUtil = require('../util/array');
 
-class Component {
+class StronglyConnectedComponent {
   constructor(vertices) {
     this.vertices = vertices;
   }
@@ -66,10 +66,10 @@ class Component {
     } while (stackVertex !== vertex);
     
     const vertices = stackVertices, /// 
-          component = new Component(vertices);
+          stronglyConnectedComponent = new StronglyConnectedComponent(vertices);
 
-    return component;
+    return stronglyConnectedComponent;
   }
 }
 
-module.exports = Component;
+module.exports = StronglyConnectedComponent;

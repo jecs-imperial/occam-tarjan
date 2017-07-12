@@ -3,13 +3,13 @@
 const Cycle = require('./graph/cycle'),
       Stack = require('./graph/stack'),
       Vertex = require('./graph/vertex'),
-      Component = require('./graph/component'),
+      StronglyConnectedComponent = require('./graph/stronglyConnectedComponent'),
       arrayUtil = require('./util/array');
 
 class Graph {
-  constructor (vertices, components, cycles) {
+  constructor (vertices, stronglyConnectedComponents, cycles) {
     this.vertices = vertices;
-    this.components = components;
+    this.stronglyConnectedComponents = stronglyConnectedComponents;
     this.cycles = cycles;
   }
 
@@ -17,8 +17,8 @@ class Graph {
     return this.vertices;
   }
 
-  getComponents() {
-    return this.components;
+  getStronglyConnectedComponents() {
+    return this.stronglyConnectedComponents;
   }
   
   getCycles() {
@@ -44,9 +44,9 @@ class Graph {
             return vertexMap;
           }, {}),
           vertices = verticesFromVertexMap(vertexMap),
-          components = componentsFromVertices(vertices),
-          cycles = cyclesFromComponents(components),
-          graph = new Graph(vertices, components, cycles);
+          stronglyConnectedComponents = stronglyConnectedComponentsFromVertices(vertices),
+          cycles = cyclesFromStronglyConnectedComponents(stronglyConnectedComponents),
+          graph = new Graph(vertices, stronglyConnectedComponents, cycles);
     
     return graph;
   }
@@ -105,9 +105,9 @@ function verticesFromVertexMap(vertexMap) {
   return vertices;
 }
 
-function componentsFromVertices(vertices) {
+function stronglyConnectedComponentsFromVertices(vertices) {
   const stack = new Stack(),
-        components = [];
+        stronglyConnectedComponents = [];
 
   let index = 0;
 
@@ -148,9 +148,9 @@ function componentsFromVertices(vertices) {
     const vertexLowest = vertex.isLowest();
 
     if (vertexLowest) {
-      const component = Component.fromStackAndVertex(stack, vertex);
+      const stronglyConnectedComponent = StronglyConnectedComponent.fromStackAndVertex(stack, vertex);
 
-      components.push(component);
+      stronglyConnectedComponents.push(stronglyConnectedComponent);
     }
   }
 
@@ -162,15 +162,15 @@ function componentsFromVertices(vertices) {
     }
   });
 
-  return components;
+  return stronglyConnectedComponents;
 }
 
-function cyclesFromComponents(components) {
-  const cycles = components.reduce(function(cycles, component) {
-    const componentCyclic = component.isCyclic();
+function cyclesFromStronglyConnectedComponents(stronglyConnectedComponents) {
+  const cycles = stronglyConnectedComponents.reduce(function(cycles, stronglyConnectedComponent) {
+    const stronglyConnectedComponentCyclic = stronglyConnectedComponent.isCyclic();
 
-    if (componentCyclic) {
-      const cycle = Cycle.fromComponent(component);
+    if (stronglyConnectedComponentCyclic) {
+      const cycle = Cycle.fromStronglyConnectedComponent(stronglyConnectedComponent);
 
       cycles.push(cycle);
     }

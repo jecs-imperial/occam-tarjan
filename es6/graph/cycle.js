@@ -5,8 +5,8 @@ class Cycle {
     this.vertices = vertices;
   }
 
-  static fromComponent(component) {
-    const vertices = component.getVertices(),
+  static fromStronglyConnectedComponent(stronglyConnectedComponent) {
+    const vertices = stronglyConnectedComponent.getVertices(),
           cycle = new Cycle(vertices);
     
     return cycle;
