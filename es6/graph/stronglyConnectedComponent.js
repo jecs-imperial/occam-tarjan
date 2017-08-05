@@ -2,7 +2,8 @@
 
 const necessary = require('necessary');
 
-const { array } = necessary;
+const { array } = necessary,
+      { first } = array;
 
 class StronglyConnectedComponent {
   constructor(vertices) {
@@ -24,7 +25,7 @@ class StronglyConnectedComponent {
   }
 
   getFirstVertexName() {
-    const firstVertex = array.first(this.vertices),
+    const firstVertex = first(this.vertices),
           firstVertexName = firstVertex.getName();
 
     return firstVertexName;
