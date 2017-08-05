@@ -1,6 +1,8 @@
 'use strict';
 
-const arrayUtil = require('../util/array');
+const necessary = require('necessary');
+
+const { array } = necessary;
 
 class StronglyConnectedComponent {
   constructor(vertices) {
@@ -22,7 +24,7 @@ class StronglyConnectedComponent {
   }
 
   getFirstVertexName() {
-    const firstVertex = arrayUtil.first(this.vertices),
+    const firstVertex = array.first(this.vertices),
           firstVertexName = firstVertex.getName();
 
     return firstVertexName;

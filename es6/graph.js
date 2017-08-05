@@ -1,10 +1,13 @@
 'use strict';
 
+const necessary = require('necessary');
+
 const Cycle = require('./graph/cycle'),
       Stack = require('./graph/stack'),
       Vertex = require('./graph/vertex'),
-      StronglyConnectedComponent = require('./graph/stronglyConnectedComponent'),
-      arrayUtil = require('./util/array');
+      StronglyConnectedComponent = require('./graph/stronglyConnectedComponent');
+
+const { array } = necessary;
 
 class Graph {
   constructor (vertices, stronglyConnectedComponents, cycles) {
@@ -55,8 +58,8 @@ class Graph {
 module.exports = Graph;
 
 function addVertexLiteral(vertexMap, vertexLiteral) {
-  const firstVertexLiteralElement = arrayUtil.first(vertexLiteral),
-        secondVertexLiteralElement = arrayUtil.second(vertexLiteral),
+  const firstVertexLiteralElement = array.first(vertexLiteral),
+        secondVertexLiteralElement = array.second(vertexLiteral),
         vertexName = firstVertexLiteralElement, ///
         descendantVertexNames = secondVertexLiteralElement; ///
 

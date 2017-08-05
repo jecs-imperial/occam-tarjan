@@ -1,7 +1,7 @@
 {
   "name": "occam-tarjan",
   "author": "James Smith",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "license": "MIT",
   "homepage": "https://github.com/occam-proof-assistant/Tarjan",
   "description": "An implementation of Tarjan's algoirthm.",
@@ -9,7 +9,9 @@
     "type": "git",
     "url": "https://github.com/occam-proof-assistant/Tarjan"
   },
-  "dependencies": {},
+  "dependencies": {
+    "necessary": "^1.0.9"
+  },
   "devDependencies": {
     "chai": "~2.2.0",
     "babel": "^6.5.2",
