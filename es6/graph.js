@@ -7,7 +7,8 @@ const Cycle = require('./graph/cycle'),
       Vertex = require('./graph/vertex'),
       StronglyConnectedComponent = require('./graph/stronglyConnectedComponent');
 
-const { array } = necessary;
+const { arrayUtilities } = necessary,
+      { first, second } = arrayUtilities;
 
 class Graph {
   constructor (vertices, stronglyConnectedComponents, cycles) {
@@ -58,8 +59,8 @@ class Graph {
 module.exports = Graph;
 
 function addVertexLiteral(vertexMap, vertexLiteral) {
-  const firstVertexLiteralElement = array.first(vertexLiteral),
-        secondVertexLiteralElement = array.second(vertexLiteral),
+  const firstVertexLiteralElement = first(vertexLiteral),
+        secondVertexLiteralElement = second(vertexLiteral),
         vertexName = firstVertexLiteralElement, ///
         descendantVertexNames = secondVertexLiteralElement; ///
 

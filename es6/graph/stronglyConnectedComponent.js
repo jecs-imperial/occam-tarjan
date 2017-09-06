@@ -2,8 +2,8 @@
 
 const necessary = require('necessary');
 
-const { array } = necessary,
-      { first } = array;
+const { arrayUtilities } = necessary,
+      { first } = arrayUtilities;
 
 class StronglyConnectedComponent {
   constructor(vertices) {
