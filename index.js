@@ -1,7 +1,5 @@
 'use strict';
 
-var parsers = {
+module.exports = {
   'Graph': require('./lib/graph')
 };
-
-module.exports = parsers;
