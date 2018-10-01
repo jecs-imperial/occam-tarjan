@@ -66,5 +66,5 @@ https://github.com/tmont/tarjan-graph
 
 ## Contact
 
-* jecs@imperial.ac.uk
+* james.smith@openmathematics.org
 * http://djalbat.com
