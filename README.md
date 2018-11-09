@@ -16,26 +16,30 @@ This algorithm partitions a graph into its strongly connected components. The [W
 
 A graph can be constructed with the `fromVertexLiterals()` factory method as follows:
 
-    const tarjan = require('occam-tarjan');
+```js
+const tarjan = require('occam-tarjan');
 
-    const { Graph } = tarjan;
+const { Graph } = tarjan;
 
-    const graph = Graph.fromVertexLiterals(
-    
-      ['a', ['b', 'c']],
-      ['b', ['b', 'd']],
-      ['c', ['a']],
-      ['d', []]
-      
-    );
+const graph = Graph.fromVertexLiterals(
+
+  ['a', ['b', 'c']],
+  ['b', ['b', 'd']],
+  ['c', ['a']],
+  ['d', []]
+
+);
+```
     
 Note that the array of names that is the second element of each literal gives the *descendants* of the vertex and not its ancestors. 
 
 The cycles, vertices and strongly connected components of the graph are then made available:
     
-    const cycles = graph.getCycles(),
-          vertices = graph.getVertices(),
-          stronglyConnectedComponents = graph.getStronglyConnectedComponents();
+```js
+const cycles = graph.getCycles(),
+      vertices = graph.getVertices(),
+      stronglyConnectedComponents = graph.getStronglyConnectedComponents();
+```
     
 ## Installation
 
