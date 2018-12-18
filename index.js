@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = {
-  'Graph': require('./lib/graph')
+  Graph: require('./lib/graph')
 };
