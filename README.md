@@ -67,9 +67,7 @@ Automation is done with [npm scripts](https://docs.npmjs.com/misc/scripts), have
 
 ## Acknowledgements
 
-* This implementation was closely based on the following one:
-
-https://github.com/tmont/tarjan-graph
+* This implementation was closely based on the [this](https://github.com/tmont/tarjan-graph) one.
 
 ## Contact
 
