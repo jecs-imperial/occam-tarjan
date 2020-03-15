@@ -31,13 +31,16 @@ You can also clone the repository with [Git](https://git-scm.com/)...
 
 ## Usage
 
-A graph can be constructed with the `fromVertexLiterals()` factory method as follows:
-
 ```js
 const tarjan = require('occam-tarjan');
 
 const { Graph } = tarjan;
 
+...
+```
+A graph can be constructed with the `fromVertexLiterals()` factory method as follows:
+
+```js
 const graph = Graph.fromVertexLiterals(
 
   ['a', ['b', 'c']],
