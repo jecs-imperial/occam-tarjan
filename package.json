@@ -10,7 +10,7 @@
     "url": "https://github.com/@jecs-imperial/occam-tarjan"
   },
   "dependencies": {
-    "necessary": "^1.7.5"
+    "necessary": "^4.1.10"
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",

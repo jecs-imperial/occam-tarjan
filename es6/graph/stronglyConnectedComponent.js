@@ -1,9 +1,8 @@
-'use strict';
+"use strict";
 
-const necessary = require('necessary');
+import { arrayUtilities } from "necessary";
 
-const { arrayUtilities } = necessary,
-      { first } = arrayUtilities;
+const { first } = arrayUtilities;
 
 class StronglyConnectedComponent {
   constructor(vertices) {

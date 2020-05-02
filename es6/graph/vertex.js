@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 class Vertex {
   constructor(name, index, stacked, visited, lowestIndex, successorVertices) {

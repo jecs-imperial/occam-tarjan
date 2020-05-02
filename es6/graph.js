@@ -1,36 +1,35 @@
-'use strict';
+"use strict";
 
-const necessary = require('necessary');
+import { arrayUtilities } from "necessary";
 
-const Cycle = require('./graph/cycle'),
-      Stack = require('./graph/stack'),
-      Vertex = require('./graph/vertex'),
-      StronglyConnectedComponent = require('./graph/stronglyConnectedComponent');
+const Cycle = require("./graph/cycle"),
+      Stack = require("./graph/stack"),
+      Vertex = require("./graph/vertex"),
+      StronglyConnectedComponent = require("./graph/stronglyConnectedComponent");
 
-const { arrayUtilities } = necessary,
-      { first, second } = arrayUtilities;
+const { first, second } = arrayUtilities;
 
 class Graph {
-  constructor (vertices, stronglyConnectedComponents, cycles) {
-    this.vertices = vertices;
+  constructor (stronglyConnectedComponents, vertices, cycles) {
     this.stronglyConnectedComponents = stronglyConnectedComponents;
+    this.vertices = vertices;
     this.cycles = cycles;
+  }
+
+  getStronglyConnectedComponents() {
+    return this.stronglyConnectedComponents;
   }
 
   getVertices() {
     return this.vertices;
   }
 
-  getStronglyConnectedComponents() {
-    return this.stronglyConnectedComponents;
-  }
-  
   getCycles() {
     return this.cycles;
   }
   
   isVertexPresent(name) {
-    const vertexPresent = this.vertices.some(function(vertex) {
+    const vertexPresent = this.vertices.some((vertex) => {
       const vertexName = vertex.getName();
       
       if (vertexName === name) {
@@ -42,7 +41,7 @@ class Graph {
   }
 
   static fromVertexLiterals(vertexLiterals) {
-    const vertexMap = vertexLiterals.reduce(function(vertexMap, vertexLiteral) {
+    const vertexMap = vertexLiterals.reduce((vertexMap, vertexLiteral) => {
             addVertexLiteral(vertexMap, vertexLiteral);         
             
             return vertexMap;
@@ -50,7 +49,7 @@ class Graph {
           vertices = verticesFromVertexMap(vertexMap),
           stronglyConnectedComponents = stronglyConnectedComponentsFromVertices(vertices),
           cycles = cyclesFromStronglyConnectedComponents(stronglyConnectedComponents),
-          graph = new Graph(vertices, stronglyConnectedComponents, cycles);
+          graph = new Graph(stronglyConnectedComponents, vertices, cycles);
     
     return graph;
   }
@@ -64,7 +63,7 @@ function addVertexLiteral(vertexMap, vertexLiteral) {
         vertexName = firstVertexLiteralElement, ///
         descendantVertexNames = secondVertexLiteralElement; ///
 
-  let successorVertices = descendantVertexNames.map(function(descendantVertexName) {
+  let successorVertices = descendantVertexNames.map((descendantVertexName) => {
     let successorVertex;
 
     const successorVertexName = descendantVertexName,  ///
@@ -100,7 +99,7 @@ function addVertexLiteral(vertexMap, vertexLiteral) {
 
 function verticesFromVertexMap(vertexMap) {
   const vertexNames = Object.keys(vertexMap),
-        vertices = vertexNames.map(function(vertexName) {
+        vertices = vertexNames.map((vertexName) => {
           const vertex = vertexMap[vertexName];
   
           return vertex;
@@ -128,7 +127,7 @@ function stronglyConnectedComponentsFromVertices(vertices) {
 
     const successorVertices = vertex.getSuccessorVertices();
 
-    successorVertices.forEach(function(successorVertex) {
+    successorVertices.forEach((successorVertex) => {
       const successorVertexUnindexed = successorVertex.isUnindexed(),
             successorVertexNotStronglyConnected = successorVertexUnindexed;  ///
 
@@ -158,7 +157,7 @@ function stronglyConnectedComponentsFromVertices(vertices) {
     }
   }
 
-  vertices.forEach(function(vertex) {
+  vertices.forEach((vertex) => {
     const vertexUnindexed = vertex.isUnindexed();
 
     if (vertexUnindexed) {
@@ -170,7 +169,7 @@ function stronglyConnectedComponentsFromVertices(vertices) {
 }
 
 function cyclesFromStronglyConnectedComponents(stronglyConnectedComponents) {
-  const cycles = stronglyConnectedComponents.reduce(function(cycles, stronglyConnectedComponent) {
+  const cycles = stronglyConnectedComponents.reduce((cycles, stronglyConnectedComponent) => {
     const stronglyConnectedComponentCyclic = stronglyConnectedComponent.isCyclic();
 
     if (stronglyConnectedComponentCyclic) {

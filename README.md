@@ -1,6 +1,6 @@
-# Tarjan
+# Occam Tarjan
 
-An implementation of Tarjan's algorithm.
+An implementation of Tarjan's algorithm for [Occam](https://github.com/jecs-imperial/occam).
 
 ### Contents
 
@@ -31,34 +31,36 @@ You can also clone the repository with [Git](https://git-scm.com/)...
 
 ## Usage
 
-```js
-const tarjan = require('occam-tarjan');
+```
+import { Graph } from "occam-tarjan";
 
-const { Graph } = tarjan;
+const  = tarjan;
 
 ...
 ```
 A graph can be constructed with the `fromVertexLiterals()` factory method as follows:
 
-```js
-const graph = Graph.fromVertexLiterals(
+```
+const graph = Graph.fromVertexLiterals([
 
-  ['a', ['b', 'c']],
-  ['b', ['b', 'd']],
-  ['c', ['a']],
-  ['d', []]
+  ["a", ["b", "c"]],
+  ["b", ["b", "d"]],
+  ["c", ["a"]],
+  ["d", []]
 
-);
+]);
 ```
 
 Note that the array of names that is the second element of each literal gives the *descendants* of the vertex and not its ancestors.
 
 The cycles, vertices and strongly connected components of the graph are then made available:
 
-```js
+```
 const cycles = graph.getCycles(),
       vertices = graph.getVertices(),
       stronglyConnectedComponents = graph.getStronglyConnectedComponents();
+
+...
 ```
 
 ## Building
@@ -70,7 +72,7 @@ Automation is done with [npm scripts](https://docs.npmjs.com/misc/scripts), have
 
 ## Acknowledgements
 
-* This implementation was closely based on the [this](https://github.com/tmont/tarjan-graph) one.
+* This implementation was closely based on Tommy Montgomery's implementation [here](https://github.com/tmont/tarjan-graph).
 
 ## Contact
 
