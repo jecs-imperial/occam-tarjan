@@ -1,6 +1,6 @@
 "use strict";
 
-class Cycle {
+export default class Cycle {
   constructor(vertices) {
     this.vertices = vertices;
   }
@@ -12,5 +12,3 @@ class Cycle {
     return cycle;
   }
 }
-
-module.exports = Cycle;

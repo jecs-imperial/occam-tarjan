@@ -1,6 +1,6 @@
 "use strict";
 
-class Vertex {
+export default class Vertex {
   constructor(name, index, stacked, visited, lowestIndex, successorVertices) {
     this.name = name;
     this.index = index;
@@ -84,5 +84,3 @@ class Vertex {
     return vertex;
   }
 }
-
-module.exports = Vertex;

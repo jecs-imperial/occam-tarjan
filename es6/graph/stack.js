@@ -1,6 +1,6 @@
 "use strict";
 
-class Stack {
+export default class Stack {
   constructor() {
     this.vertices = [];
   }
@@ -22,5 +22,3 @@ class Stack {
     this.vertices.push(vertex);
   }
 }
-
-module.exports = Stack;

@@ -9,7 +9,7 @@ import StronglyConnectedComponent from "./graph/stronglyConnectedComponent";
 
 const { first, second } = arrayUtilities;
 
-class Graph {
+export default class Graph {
   constructor (stronglyConnectedComponents, vertices, cycles) {
     this.stronglyConnectedComponents = stronglyConnectedComponents;
     this.vertices = vertices;
@@ -54,8 +54,6 @@ class Graph {
     return graph;
   }
 }
-
-module.exports = Graph;
 
 function addVertexLiteral(vertexMap, vertexLiteral) {
   const firstVertexLiteralElement = first(vertexLiteral),

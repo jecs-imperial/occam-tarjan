@@ -4,7 +4,7 @@ import { arrayUtilities } from "necessary";
 
 const { first } = arrayUtilities;
 
-class StronglyConnectedComponent {
+export default class StronglyConnectedComponent {
   constructor(vertices) {
     this.vertices = vertices;
   }
@@ -14,7 +14,7 @@ class StronglyConnectedComponent {
   }
 
   getVertexNames() {
-    const vertexNames = this.vertices.map(function(vertex) {
+    const vertexNames = this.vertices.map((vertex) => {
       const vertexName = vertex.getName();
       
       return vertexName;
@@ -73,5 +73,3 @@ class StronglyConnectedComponent {
     return stronglyConnectedComponent;
   }
 }
-
-module.exports = StronglyConnectedComponent;
