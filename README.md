@@ -31,16 +31,11 @@ You can also clone the repository with [Git](https://git-scm.com/)...
 
 ## Usage
 
-```
-import { Graph } from "occam-tarjan";
-
-const  = tarjan;
-
-...
-```
 A graph can be constructed with the `fromVertexLiterals()` factory method as follows:
 
 ```
+import { Graph } from "occam-tarjan";
+
 const graph = Graph.fromVertexLiterals([
 
   ["a", ["b", "c"]],
