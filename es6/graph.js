@@ -2,10 +2,10 @@
 
 import { arrayUtilities } from "necessary";
 
-const Cycle = require("./graph/cycle"),
-      Stack = require("./graph/stack"),
-      Vertex = require("./graph/vertex"),
-      StronglyConnectedComponent = require("./graph/stronglyConnectedComponent");
+import Cycle from "./graph/cycle";
+import Stack from "./graph/stack";
+import Vertex from "./graph/vertex";
+import StronglyConnectedComponent from "./graph/stronglyConnectedComponent";
 
 const { first, second } = arrayUtilities;
 
