@@ -1,6 +1,6 @@
 "use strict";
 
-import { Graph } from "./index";
+import { Graph } from "./index";  ///
 
 const graph = Graph.fromVertexLiterals([
 
@@ -14,3 +14,5 @@ const graph = Graph.fromVertexLiterals([
 const cycles = graph.getCycles(),
       vertices = graph.getVertices(),
       stronglyConnectedComponents = graph.getStronglyConnectedComponents();
+
+debugger
