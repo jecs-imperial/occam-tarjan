@@ -1,13 +1,13 @@
 {
   "name": "occam-tarjan",
   "author": "James Smith",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "license": "MIT, Anti-996",
-  "homepage": "https://github.com/@jecs-imperial/occam-tarjan",
+  "homepage": "https://github.com/djalbat/occam-tarjan",
   "description": "An implementation of Tarjan's algoirthm.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/@jecs-imperial/occam-tarjan"
+    "url": "https://github.com/djalbat/occam-tarjan"
   },
   "dependencies": {
     "necessary": "^4.1.10"
