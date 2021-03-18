@@ -72,4 +72,3 @@ This implementation is closely based on Tommy Montgomery's implementation [here]
 ## Contact
 
 * james.smith@openmathematics.org
-* http://djalbat.com
